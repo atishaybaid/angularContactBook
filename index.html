@@ -4,21 +4,102 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
+	<link rel="stylesheet"  type="text/css"  href="style/style.css">
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
 	<script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	
 	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/services/data.js"></script>
 	<script type="text/javascript" src="scripts/controllers/mainCtrl.js"></script>
 
 </head>
 
 <body ng-controller="mainCtrl"  ng-cloak="">
-	<div class="mainContainer" layout="column">
+	 <div class="main-container" layout="column">
 		<md-toolbar class="md-hue-2" flex="10">
-			<h2>Contacts App</h2>
+			<div class="app-title">
+				<h2>Contact App</h2>
+			</div>
+
+
+
 		</md-toolbar>
+
+		<main layout="row" class="content-area"  layout-align="space-around" flex="70">
+		
+			<div class="contacts-list" flex="70">
+				
+				<div class="table-hading">
+					<h3 class="table-title">Contacts</h3>
+				</div>
+
+				<div class="contact-table" layout="row" layout-align="center center">
+					<table border="1px">
+						<tr>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Address</th>
+							<th>Mark Fav</th>
+						</tr>
+						<tr ng-repeat="item in peopleList">
+							<td ng-dblclick="editCell(item,'editName')" >
+								<span ng-if="!item.editName">								
+									{{item.name}}	
+								</span>
+								<md-input-container ng-if="item.editName">
+							        <input ng-model="item.name" ng-keydown="checkDoneEditing($event,item,'editName')">
+							      </md-input-container>
+							</td>
+
+							<td ng-dblclick="editCell(item,'editPhone')">
+								<span ng-if="!item.editPhone">
+									{{item.phone}}
+								</span>
+								<md-input-container ng-if="item.editPhone">
+							        <input ng-model="item.phone" ng-keydown="checkDoneEditing($event,item,'editPhone')">
+							     </md-input-container>
+							</td>
+
+							<td ng-dblclick="editCell(item,'editAddress')">
+								<span ng-if="!item.editAddress">
+									{{item.address}}
+								</span>
+							<md-input-container ng-if="item.editAddress">
+							        <input ng-model="item.address" ng-keydown="checkDoneEditing($event,item,'editAddress')">
+							 </md-input-container>
+							
+							</td>
+							<td>{{item.fav}}</td>
+							
+						</tr>
+
+
+					</table>
+
+				</div>
+				
+
+			</div>
+
+
+			<div class="fav-list" flex="25" layout="column" layout-align="center center">
+				<div class="fav-contact" ng-repeat="item in peopleList | filter: {fav:true}">
+					<span>{{item.name}}</span>
+					<span>{{item.phone}}</span>
+
+
+
+				</div>
+				
+
+			</div>
+			
+
+
+		</main>
 
 
 	</div>

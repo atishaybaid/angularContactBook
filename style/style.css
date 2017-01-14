@@ -1,0 +1,40 @@
+.app-title{
+	margin-left: 30px;
+}
+
+.content-area{
+	margin-top:30px;
+}
+
+
+.fav-list{
+	border: 1px solid;
+}
+
+
+.contacts-list{
+	border: 1px solid;
+	min-height: 400px;
+
+}
+th,td{
+	width:150px;
+	text-align: center;
+}
+
+td:hover{
+	cursor: pointer;
+}
+
+
+md-input-container{
+	padding: 0 !important;
+	margin: 0 !important;
+	outline: 0;
+
+}
+
+
+.md-errors-spacer{
+	min-height: 0px !important;
+}
