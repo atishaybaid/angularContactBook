@@ -5,6 +5,17 @@
 .content-area{
 	margin-top:30px;
 }
+.add-icon{
+	position: absolute;
+	font-size: 60px;
+	bottom: 10px;
+	right: 10px;
+}
+
+.add-icon:hover{
+	cursor: pointer;
+}
+
 .table-hading{
 	text-align:center;
 }
@@ -17,6 +28,7 @@
 .contacts-list{
 	border: 1px solid;
 	min-height: 400px;
+	position: relative;
 
 }
 th,td{
@@ -53,3 +65,10 @@ md-input-container{
 .red{
 	color: red;
 }
+
+.add-contactDialog{
+	height: 300px;
+	width: 600px;
+}
+
+

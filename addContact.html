@@ -1,0 +1,34 @@
+<md-dialog aria-label="Add Contact" class="add-contactDialog" layout="column">
+<md-toolbar flex="10">
+	      <div class="md-toolbar-tools">
+	        <h2>Add Contact</h2>
+	        </div>
+	 </md-toolbar>
+<div  layout="row" layout-align="space-around center" flex="50">
+
+	
+	<md-input-container>
+		<label>Name</label>
+		<input ng-model="newContact.name" >
+	</md-input-container>
+
+	<md-input-container>
+		<label>Phone</label>
+		<input ng-model="newContact.phone">
+	</md-input-container>
+
+	<md-input-container>
+		<label>Addresss</label>
+		<input ng-model="newContact.address" >
+	</md-input-container>
+
+</div>
+
+<div class="action-btns" flex="10" layout="row" layout-align="space-around center">
+	<md-button class="md-raised md-warn" ng-click="closeDialog()">Cancel</md-button>
+	<md-button class="md-raised md-primary" ng-click="saveContact()" ng-disabled="!newContact.name && !newContact.phone && !newContact.address">Save</md-button>
+
+</div>
+
+
+</md-dialog>

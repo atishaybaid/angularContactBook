@@ -47,7 +47,7 @@
 							<th>Address</th>
 							<th>Mark Fav</th>
 						</tr>
-						<tr ng-repeat="item in peopleList">
+						<tr ng-repeat="item in peopleList track by $index">
 							<td ng-dblclick="editCell(item,'editName')" >
 								<span ng-if="!item.editName">								
 									{{item.name}}	
@@ -83,6 +83,8 @@
 					</table>
 
 				</div>
+
+				<i class="material-icons add-icon" style="font-size: 55px;" ng-click="showAdvanced($event)">add_circle</i>
 				
 
 			</div>
