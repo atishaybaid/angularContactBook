@@ -14,6 +14,9 @@
 	<script type="text/javascript" src="scripts/app.js"></script>
 	<script type="text/javascript" src="scripts/services/data.js"></script>
 	<script type="text/javascript" src="scripts/controllers/mainCtrl.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 
 </head>
 
@@ -50,7 +53,7 @@
 									{{item.name}}	
 								</span>
 								<md-input-container ng-if="item.editName">
-							        <input ng-model="item.name" ng-keydown="checkDoneEditing($event,item,'editName')">
+							        <input ng-model="item.name" ng-keydown="checkDoneEditing($event,item,'editName')" ng-blur="stopEditting(item,'editName')">
 							      </md-input-container>
 							</td>
 
@@ -59,7 +62,7 @@
 									{{item.phone}}
 								</span>
 								<md-input-container ng-if="item.editPhone">
-							        <input ng-model="item.phone" ng-keydown="checkDoneEditing($event,item,'editPhone')">
+							        <input ng-model="item.phone" ng-keydown="checkDoneEditing($event,item,'editPhone')" ng-blur="stopEditting(item,'editPhone')">
 							     </md-input-container>
 							</td>
 
@@ -68,11 +71,11 @@
 									{{item.address}}
 								</span>
 							<md-input-container ng-if="item.editAddress">
-							        <input ng-model="item.address" ng-keydown="checkDoneEditing($event,item,'editAddress')">
+							        <input ng-model="item.address" ng-keydown="checkDoneEditing($event,item,'editAddress')" ng-blur="stopEditting(item,'editAddress')">
 							 </md-input-container>
 							
 							</td>
-							<td>{{item.fav}}</td>
+							<td><i class="material-icons" ng-class="{red:item.fav}" ng-click="item.fav = !item.fav">favorite</i></td>
 							
 						</tr>
 
@@ -86,11 +89,20 @@
 
 
 			<div class="fav-list" flex="25" layout="column" layout-align="center center">
-				<div class="fav-contact" ng-repeat="item in peopleList | filter: {fav:true}">
-					<span>{{item.name}}</span>
-					<span>{{item.phone}}</span>
+
+				<div>
+
+					<div class="table-hading">
+						<h3 class="table-title">Favourites</h3>
+					</div>
+
+					<div class="fav-contact" ng-repeat="item in peopleList | filter: {fav:true}">
+						<span class="text">{{item.name}}</span>
+						<span class="text">{{item.phone}}</span>
 
 
+
+					</div>
 
 				</div>
 				

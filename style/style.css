@@ -5,7 +5,9 @@
 .content-area{
 	margin-top:30px;
 }
-
+.table-hading{
+	text-align:center;
+}
 
 .fav-list{
 	border: 1px solid;
@@ -35,6 +37,19 @@ md-input-container{
 }
 
 
+.text{
+	display:block;
+	margin: 6px
+}
+
+.fav-contact{
+	border: 1px solid;
+}
+
 .md-errors-spacer{
 	min-height: 0px !important;
+}
+
+.red{
+	color: red;
 }

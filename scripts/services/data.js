@@ -1,5 +1,5 @@
-angular.module('contactBook').service('data',function(){
-	this.peopleList = [
+angular.module('contactBook').service('data',['$http',function($http){
+	/*this.peopleList = [
 	{
 		name:'John',
 		phone:123456789,
@@ -48,5 +48,16 @@ angular.module('contactBook').service('data',function(){
 		address:'Boston',
 		fav:true
 	}
-	]
-})
+	]*/
+
+	this.getPeopleList = function(){
+
+		return $http({
+				method:'GET',
+				url:'/sample.json'
+				}).then(function(res){
+					return res.data.data;
+				})
+
+	}
+}])
